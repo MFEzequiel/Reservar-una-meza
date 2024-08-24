@@ -1,4 +1,10 @@
 import { useNextCarousel } from "../hoocks/useNextCarousel"
+import carouselImage1 from '/src/assets/img/carousel-1.jpg'
+import carouselImage2 from '/src/assets/img/carousel-2.jpg'
+import carouselImage3 from  '/src/assets/img/carousel-3.jpg'
+import carouselImage4 from '/src/assets/img/offer-1.jpg'
+import carouselImage5 from '/src/assets/img/offer-2.jpg'
+
 
 
 export function Carousel() {
@@ -10,14 +16,14 @@ export function Carousel() {
                     <div className={`roulet-index ${index.indexZero ? 'roulet-index-active': ''}`}>
                         <img
                         className='index-image'
-                        src='/src/assets/img/carousel-1.jpg'
+                        src={carouselImage1}
                         alt=''
                         />
                     </div>
                     <div className={`roulet-index ${index.indexOne ? 'roulet-index-active': ''}`}>
                         <img
                         className='index-image'
-                        src='/src/assets/img/carousel-2.jpg'
+                        src={carouselImage2}
                         loading='legazi'
                         alt=''
                         />
@@ -26,7 +32,7 @@ export function Carousel() {
                     <div className={`roulet-index ${index.indexTwo ? 'roulet-index-active': ''}`}>
                         <img
                         className='index-image'
-                        src='/src/assets/img/carousel-3.jpg'
+                        src={carouselImage3}
                         loading='legazi'
                         alt=''
                         />
@@ -41,7 +47,7 @@ export function Carousel() {
                     </article>
                     <img
                     className='offer-image scal-img'
-                    src='/src/assets/img/offer-1.jpg'
+                    src={carouselImage4}
                     alt=''
                     />
                 </div>
@@ -52,7 +58,7 @@ export function Carousel() {
                     </article>
                     <img
                     className='offer-image scal-img'
-                    src='/src/assets/img/offer-2.jpg'
+                    src={carouselImage5}
                     alt=''
                     />
                 </div>
