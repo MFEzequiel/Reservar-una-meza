@@ -1,19 +1,19 @@
-export function CompArticle ({ keys, img, name, text, price, classN }) {
-  const className = `card scal__img ${classN ?? ''}`
+export function CompArticle ({ keys, img, name, text, price, classN = '', onGetId }) {
+  const className = `card scal-img ${classN}`
   return (
     <>
       <article key={keys} className={className}>
         <img
-          className='card__image scal__img'
+          className='card-image scal-img'
           src={img}
-          loading='legazi'
-          alt={`Imagen de ${name}`}
+          loading='lazy'
+          alt={`Imagen del  product ${name}`}
         />
-        <div className='card__text'>
-          <h2 className='text__title'>{name}</h2>
-          <p className='card__paragraph'>{text} <span>{price}$</span>
+        <div className='card-text'>
+          <p className='text-title Subtitle'>{name}</p>
+          <p className='card-paragraph'>{text} <span>{price}$</span>
           </p>
-          <button className="card-button">Detalle</button>
+          <button onClick={onGetId} className="card-button paragraph" >Detalle</button>
         </div>
       </article>
     </>

@@ -6,24 +6,26 @@ import { Home } from './components/Home'
 import { Shop } from './components/Shop'
 import { Page } from './components/Checkout' 
 import { Contact } from './components/Contact'
+import { ShowDetail } from './components/ShowDatail'
+import { cl } from './components/jquery'
 import './css/App.css'
 
 function App() {
-  const [filterText, setFilterText] = useState('')
 
   return (
     <>
-      <Header filterText={filterText} onSetFilterText={setFilterText} />
-      <Main>
-        <section className="main__section">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/shop' element={<Shop filterText={filterText} />} />
-            <Route path='/page' element={<Page/>} />
-            <Route path='/contact' element={<Contact />} />
-          </Routes>
-        </section>
-      </Main>
+      <Header />
+        <Main>
+          <section className="main__section">
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/shop' element={<Shop />} />
+              <Route path='/page' element={<Page/>} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/product/:id' element={ <ShowDetail /> } />
+            </Routes>
+          </section>
+        </Main>
     </>
   )
 }

@@ -1,32 +1,41 @@
+import { useNavigate } from 'react-router-dom'
+import { useProduct } from '../hoocks/useProduct'
 import { CompArticle } from './Card'
+import { cl } from './jquery'
+import { SetState } from '../Context/productContext'
+import { useContext } from 'react'
 
 
 function ListOfProduct ({
   products,
-  filterText,
-  isCheked = 'price-all',
+  filter,
+  checkedFilter = 'price-All',
   classN
 }) {
+  const navigation = useNavigate()
+
+  const productGetId = (id) => {
+    navigation(`/product/${id}`)
+  }
 
   const rows = []
-  
+
   products.forEach(pro => {
-    // if (
-    //   pro.title.toLowerCase().indexOf(
-    //   filterText.toLowerCase()) === -1) {
-    //   return
-    // }
-
-
-    if (isCheked['price-all'] && !pro.price) {
+    if (
+      pro.title.toLowerCase().indexOf(
+      filter.toLowerCase()) === -1) {
+      return
+    }
+    
+    if (checkedFilter.priceAll && !pro.price) {
       return
     }
 
-    if (isCheked['price-one'] && pro.price >= 0 && pro.price > 99) {
+    if (checkedFilter.priceOne && pro.price >= 0 && pro.price > 99) {
       return
     }
 
-    if (isCheked['price-two'] && pro.price >= 0 && pro.price < 100) {
+    if (checkedFilter.priceTwo && pro.price >= 0 && pro.price < 100) {
       return
     }
 
@@ -39,6 +48,7 @@ function ListOfProduct ({
         text={pro.paragraph}
         price={pro.price}
         classN={classN}
+        onGetId={() => productGetId(pro.id)}
       />
     )
   })
@@ -46,21 +56,22 @@ function ListOfProduct ({
 }
 
 function NoProduct () {
-  return <p>No se encontro productos</p>
+  return <p className='filterable-title-text title'>No se encontro productos</p>
 }
 
 export function Product ({
-  products,
-  filterText,
-  isCheked,
+  allFilter,
   classN
 }) {
-  const hasProducts = products?.length > 0
+  const { product } = useProduct()
+  const { filter } = useContext(SetState)
+  const hasProducts = product?.length > 0
+  
   return hasProducts ? (
     <ListOfProduct
-      products={products}
-      filterText={filterText}
-      isCheked={isCheked}
+      filter={filter}
+      checkedFilter={allFilter}
+      products={product}
       classN={classN}
     />
   ) : (

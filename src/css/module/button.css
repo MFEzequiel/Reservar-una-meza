@@ -1,4 +1,4 @@
-.header__button {
+.header-button {
   display: none;
   flex-direction: column;
   justify-content: space-evenly;
@@ -11,8 +11,8 @@
   overflow: hidden;
 }
 
-.header__button>.header__button-line {
-  background: #fff;
+.header-button>.header-button-line {
+  background: var(--Very-Dark-Blue);
   height: 2px;
   width: 100%;
   border-radius: 5px;
@@ -36,10 +36,11 @@
   border: none;
   box-shadow: var(--box-shadow);
   width: 50%;
+  text-align: center;
 }
 
 @media only screen and (max-width: 980px) {
-  .header__button {
+  .header-button {
     display: flex;
   }
 }

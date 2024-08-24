@@ -1,63 +1,48 @@
 import { NavLink } from 'react-router-dom'
-import { $, $$, cl } from './jquery'
+import { useHeaderLogic } from '../hoocks/useHeaderLogic'
 
-export function Header ({ filterText, onSetFilterText }) {
-  const handleChangle = event => {
-    const newValue = event.target.value
-    onSetFilterText(newValue)
-  }
-
-  const handleClick = () => {
-    const nav = $('.header__nav')
-    const btl = $$('.header__button-line')
-
-    btl.forEach(el => {
-      el.classList.toggle('header__button-active')
-    })
-    nav.classList.toggle('header__nav-active')
-  }
-
+export function Header () {
+  const { handleClick, handleTheme, handleSubmit } = useHeaderLogic()
+  
   return (
     <header className='header'>
-      <button className='header__button' onClick={handleClick}>
-        <div className='header__button-line'></div>
-        <div className='header__button-line'></div>
-        <div className='header__button-line'></div>
+      <button className='header-button' onClick={handleClick}>
+        <div className='header-button-line'></div>
+        <div className='header-button-line'></div>
+        <div className='header-button-line'></div>
       </button>
-      <nav className='header__nav'>
-        <ul className='nav__menu'>
-          <li className='menu__item'>
-            <NavLink to='/' className='item__link'>
+      <nav className='header-nav'>
+        <ul className='nav-menu'>
+          <li className='menu-item'>
+            <NavLink to='/' className='item-link'>
               Inicio
             </NavLink>
           </li>
-          <li className='menu__item'>
-            <NavLink to='/shop' className='item__link'>
+          <li className='menu-item'>
+            <NavLink to='/shop' className='item-link'>
               shop
             </NavLink>
           </li>
-          <li className='menu__item'>
-            <NavLink to='/page' className='item__link'>
+          <li className='menu-item' hidden>
+            <NavLink to='/page' className='item-link'>
               Page
             </NavLink>
           </li>
-          <li className='menu__item'>
-            <NavLink to='/Contact' className='item__link'>
+          <li className='menu-item'>
+            <NavLink to='/Contact' className='item-link'>
               Contacto
             </NavLink>
           </li>
         </ul>
       </nav>
-      <form className='header-form' >
+      <form className='header-form' onSubmit={handleSubmit} >
         <input
-          onChange={handleChangle}
-          value={filterText}
           name='query'
           className='form-input'
           type='text'
           placeholder='Buspar...'
         />
-        <button className='form-button' onClick={console.log('click')}>
+        <button className='form-button'>
           Buscar
         </button>
       </form>
@@ -66,8 +51,10 @@ export function Header ({ filterText, onSetFilterText }) {
         width='32'
         height='32'
         viewBox='0 0 32 32'
+        className='header-theme'
+        onClick={handleTheme}
       >
-        <g fill='none' fillRule='evenodd' transform='translate(-442 -200)'>
+        <g className='header-theme' fill='none' fillRule='evenodd' transform='translate(-442 -200)'>
           <g fill='currentColor' transform='translate(356 144)'>
             <path
               fillRule='nonzero'

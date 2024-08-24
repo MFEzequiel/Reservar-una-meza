@@ -45,7 +45,7 @@ h1 {
     font-weight: 700;
 }
 
-h2, h3, h4, h5, h6, button {
+h2, h3, h4, h5, h6, button, .subTitle {
     font-family: 'Montserrart';
     font-weight: 600;
 }
@@ -58,4 +58,12 @@ a, input {
 p {
     font-family: 'Montserrart';
     font-weight: 400;
+}
+
+.fontSizaRemTitle {
+    font-size: 3rem;
+}
+
+.fontSizaRemSubTitle {
+    font-size: 2rem;
 }

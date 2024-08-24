@@ -27,16 +27,16 @@ export function Page () {
           </label>
       </form>
       <div className='container'>
-        <div className='col__lh__8'>
-          <h5 className='cont__title pos__relative'>
-            <span className='title__text'>Billing Address</span>
-          </h5>
+        <div className='col-lh-8'>
+          <p className='cont-title pos-relative'>
+            <span className='title-text'>Billing Address</span>
+          </p>
           
         </div>
-        <div className='col__lh__4'>
-          <h5 className='cont__title pos__relative'>
-            <span className='title__text'>Order Total</span>
-          </h5>
+        <div className='col-lh-4'>
+          <p className='cont-title pos-relative'>
+            <span className='title-text'>Order Total</span>
+          </p>
         </div>
       </div>
     </>

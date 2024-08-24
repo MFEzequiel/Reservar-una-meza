@@ -1,39 +1,37 @@
-import {  useState } from 'react'
+import {  useCallback, useState } from 'react'
+import { cl } from '../components/jquery'
 
 export function useAllFilter () {
   const [allFilter, setAllFilter] = useState({
-    'price-all': true,
-    'price-one': false,
-    'price-two': false
+    priceAll: true,
+    priceOne: false,
+    priceTwo: false
   })
 
-  const filterPriceAll = () => {
-    const newAllFilter = {
-      'price-all': true,
-      'price-one': false,
-      'price-two': false
+  const filterPriceAll = useCallback((ev) => {
+    setObjectFilter(ev.target)
+  },[])
+
+  const setObjectFilter = (ev) => {
+    const newFilter = {}
+    
+    if (ev.name === 'filterDefault') {
+      newFilter.priceAll = true
+      newFilter.priceOne = false
+      newFilter.priceTwo = false
+    }else if (ev.name === 'filterOne') {
+      newFilter.priceAll = false
+      newFilter.priceOne = true
+      newFilter.priceTwo = false
+    }else if (ev.name === 'filterTwo') {
+      newFilter.priceAll = false
+      newFilter.priceOne = false
+      newFilter.priceTwo = true
+    }else {
+      cl('El no se reconose el nombre del filtro por precio.')
     }
-    setAllFilter(newAllFilter)
+    setAllFilter(newFilter)
   }
 
-  const filterPriceOne = () => {
-    const newAllFilter = {
-      'price-all': false,
-      'price-one': true,
-      'price-two': false
-    }
-    setAllFilter(newAllFilter)
-  }
-
-  const filterPriceTwo = () => {
-    const newAllFilter = {
-      'price-all': false,
-      'price-one': false,
-      'price-two': true
-    }
-    setAllFilter(newAllFilter)
-  }
-
-  return { allFilter, filterPriceAll, filterPriceOne, filterPriceTwo }
+  return { allFilter, filterPriceAll }
 }
-

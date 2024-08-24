@@ -1,16 +1,17 @@
 import { createContext, useState } from "react";
 
-export const SetProduct = createContext()
+export const SetState = createContext()
 
 export function GetProduct({ children }) {
+    const [ filterText, setFilterText ] = useState('')
     const [products, setProducts] = useState([])
 
     return (
-        <SetProduct.Provider value={{
-            products: products,
-            setProducts: setProducts
+        <SetState.Provider value={{
+            filter: filterText, setFilter: setFilterText,
+            products: products, setProducts: setProducts,
         }}>
             {children}
-        </SetProduct.Provider> 
+        </SetState.Provider> 
     )
 }
