@@ -1,9 +1,9 @@
 import { useNextCarousel } from "../hoocks/useNextCarousel"
-import carouselImage1 from '/src/assets/img/carousel-1.jpg'
-import carouselImage2 from '/src/assets/img/carousel-2.jpg'
-import carouselImage3 from  '/src/assets/img/carousel-3.jpg'
-import carouselImage4 from '/src/assets/img/offer-1.jpg'
-import carouselImage5 from '/src/assets/img/offer-2.jpg'
+import carouselImage1 from '../../public/img/carousel-1.jpg'
+import carouselImage2 from '../../public/img/carousel-2.jpg'
+import carouselImage3 from  '../../public/img/carousel-3.jpg'
+import carouselImage4 from '../../public/img/offer-1.jpg'
+import carouselImage5 from '../../public/img/offer-2.jpg'
 
 
 
