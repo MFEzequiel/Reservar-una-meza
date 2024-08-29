@@ -1,7 +1,8 @@
 import { Product } from './RenderProduct'
 import { useAllFilter } from '../hoocks/useAllFilter'
 
-function AllFilter({allFilter, onSetAllFilter }){
+function AllFilter({allFilter, onSetAllFilter}){
+
   return (
     <article className='filterable-container'>
       <form action='' className='filterable-container-form'>

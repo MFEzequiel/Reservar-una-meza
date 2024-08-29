@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Main } from './components/Main'
 import { Header } from './components/Header'
@@ -9,6 +8,8 @@ import { Contact } from './components/Contact'
 import { ShowDetail } from './components/ShowDatail'
 import { cl } from './components/jquery'
 import './css/App.css'
+import { useContext, useEffect } from 'react'
+import { SetState } from './Context/productContext'
 
 function App() {
 

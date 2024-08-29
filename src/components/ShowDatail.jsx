@@ -30,7 +30,7 @@ export function ShowDetail() {
         {
             product.map(el => {
                 if (el.id === id) {
-                    return <ProdutDetail image={el.poster} title={el.title} price={el.price} description={el.description} />
+                    return <ProdutDetail key={el.id} image={el.poster} title={el.title} price={el.price} description={el.description} />
                 }
             })
         }

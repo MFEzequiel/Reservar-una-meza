@@ -60,11 +60,10 @@ function NoProduct () {
 }
 
 export function Product ({
-  allFilter,
   classN
 }) {
   const { product } = useProduct()
-  const { filter } = useContext(SetState)
+  const { filter, allFilter } = useContext(SetState)
   const hasProducts = product?.length > 0
   
   return hasProducts ? (

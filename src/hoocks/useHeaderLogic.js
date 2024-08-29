@@ -1,11 +1,12 @@
-import { useContext, useState } from "react"
+import { useCallback, useContext, useState } from "react"
 import { SetState } from "../Context/productContext"
 import { $, $$, cl } from '../components/jquery'
 
 export function useHeaderLogic () {
   const { setFilter } = useContext(SetState)
+  const { theme, setTheme } = useContext(SetState)
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     const nav = $('.header-nav')
     const btl = $$('.header-button-line')
 
@@ -13,27 +14,18 @@ export function useHeaderLogic () {
       el.classList.toggle('header-button-active')
     })
     nav.classList.toggle('header-nav-active')
-  }
+  },[])
 
   const handleTheme = () => {
-    const html = document.querySelector('html')
-    const htmlAtribute = document
-      .querySelector('html')
-      .getAttribute('data-theme')
-
-    if (htmlAtribute === 'light') {
-      document.querySelector('html').setAttribute('data-theme', 'dark')
-    } else {
-      html.setAttribute('data-theme', 'light')
-    }
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
-  const handleSubmit = ev => {
+  const handleSubmit = useCallback(ev => {
     ev.preventDefault()
     const form = new FormData(ev.target)
     let query = form.get('query')
     setFilter(query)
-  }
+  },[])
 
   return { handleClick, handleTheme, handleSubmit }
 }

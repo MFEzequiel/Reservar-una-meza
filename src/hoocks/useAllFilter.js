@@ -1,12 +1,10 @@
-import {  useCallback, useState } from 'react'
+import {  useCallback, useContext, useState } from 'react'
 import { cl } from '../components/jquery'
+import { SetState } from '../Context/productContext'
 
 export function useAllFilter () {
-  const [allFilter, setAllFilter] = useState({
-    priceAll: true,
-    priceOne: false,
-    priceTwo: false
-  })
+
+  const { allFilter, setAllFilter } = useContext(SetState)
 
   const filterPriceAll = useCallback((ev) => {
     setObjectFilter(ev.target)

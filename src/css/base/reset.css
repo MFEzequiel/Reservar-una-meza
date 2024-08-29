@@ -80,3 +80,7 @@ a {
 .pos-relative {
     position: relative;
 }
+
+button {
+    color: var(--color-text)
+}

@@ -1,12 +1,12 @@
 html[data-theme='dark'] {
     --color-text: #fff;
-    --backgruond-color: #222;
+    --backgruond-color: hsl(235, 24%, 19%);
     /* ### Dark Theme */
-    --Very-Dark-Blue: hsl(235, 21%, 11%);
-    --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
-    --Light-Grayish-Blue: hsl(234, 39%, 85%);
-    --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
-    --Dark-Grayish-Blue: hsl(234, 11%, 52%);
-    --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
-    --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+    --Very-Light-Gray: hsl(237, 14%, 26%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 52%);
+    --Light-Grayish-Blue: hsl(233, 11%, 44%);
+    --Dark-Grayish-Blue: hsl(236, 33%, 92%);
+    --Very-Dark-Grayish-Blue: hsl(236, 33%, 92%);
+    
+    --box-shadow: 0 4px 6px hsla(180, 100%, 50%, 0.1);
 }
